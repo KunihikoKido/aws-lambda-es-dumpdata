@@ -117,7 +117,8 @@ def lambda_handler(event, context):
         logger.info('Finished: {}'.format(event))
         return RESULT_SUCCESS
 
-    s3_put_object(event.s3_bucket, event.s3_prefix, docs)
+    s3_put_object(event.s3_bucket,
+        os.path.join(event.s3_prefix,event.source_index), docs)
 
     event.scroll_id = scroll_id
     invoke_reindex(event, context)

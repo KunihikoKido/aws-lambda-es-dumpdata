@@ -19,8 +19,8 @@ Example: Input event:
   "scan_options": {
     "size": 500
   },
-  "s3_bucket": "sourcebucket",
-  "s3_prefix": "news"
+  "s3_bucket": "myBucket",
+  "s3_prefix": "dumps"
 }
 
 ```
@@ -91,4 +91,26 @@ fab aws-invoke
 ## Show fabric Available commands
 ```bash
 fab -l
+```
+
+## Amazon API Gateway
+### _Example settings_
+
+_Method and Resources:_
+```
+POST /{indexname}/_dumpdata
+```
+
+_Request mapping template:_
+```json
+{
+  "source_host": "http://<your_elasticsearch_server>/",
+  "source_index": "$input.params('indexname')",
+  "scroll": "5m",
+  "scan_options": {
+    "size": 500
+  },
+  "s3_bucket": "myBucket",
+  "s3_prefix": "dumps"
+}
 ```
