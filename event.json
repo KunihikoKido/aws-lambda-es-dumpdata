@@ -1,0 +1,10 @@
+{
+  "source_host": "http://127.0.0.1:9200/",
+  "source_index": "blog",
+  "scroll": "5m",
+  "scan_options": {
+    "size": 500
+  },
+  "s3_bucket": "sourcebucket",
+  "s3_prefix": "news"
+}
