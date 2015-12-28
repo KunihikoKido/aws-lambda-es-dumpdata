@@ -96,7 +96,7 @@ fab -l
 ## Amazon API Gateway
 ### _Example settings_
 
-_Method and Resources:_
+_Methods and Resources:_
 ```
 POST /{indexname}/_dumpdata
 ```
@@ -113,4 +113,10 @@ _Request mapping template:_
   "s3_bucket": "myBucket",
   "s3_prefix": "dumps"
 }
+```
+
+_Example Request:_
+
+```
+POST /blog/_dumpdata
 ```
